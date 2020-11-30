@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookUp</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Nav Bar  -->
+    <header class="indigo darken-4  z-depth-2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><img src="./assets/images/LookUp_Logo_2-02.png" height="100"></a>
+        </div>
+    </header>
+    <main>
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="./assets/images/PIA08942_orig.jpg">
+            </div>
+        </div>
+
+        <!-- Geolocation Error Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Error!</h4>
+                <p>Geolocation is not supported for this browser. Please try opening this app in Google Chrome.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div class="container">
+            <div class="row">
+                <h6 class="center-align">
+                    Interested in knowing which celestial bodies are (or will be) above you at any given time? Allow the
+                    browser
+                    to gauge your location, then enter a date and time below to find out! Results will show you the
+                    planets (including the sun and moon) that will be overhead at your current location and will pull
+                    images of each from the NASA Image and Video Library.
+                </h6>
+                <!-- Left panel  -->
+                <div class="col s12 m4 l4 input-form">
+
+                    <!-- Geolocation Request  -->
+                    <div class="row indigo darken-4 z-depth-2">
+                        <span class="white-text date-title">Can the browser access your geolocation? We need your
+                            location to process our data.</span>
+                        <div class="input-field">
+                            <button id="geolocation" class="btn waves-effect waves-light indigo accent-2" type="submit"
+                                name="action">Yes, please do
+                                <i class="material-icons right">location_on</i>
+                            </button>
+                        </div>
+                        <div class="input-field">
+                            <button id="no-geolocation" class="btn waves-effect waves-light red accent-2" type="submit"
+                                name="action">No, thank you
+                                <i class="material-icons right">location_off</i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!--Activates if user chooses no geolocation-->
+                    <div class="row indigo darken-4 z-depth-2 no-geo-inputs hidden">
+                        <p class="white-text no-geo-title">Without enabling browser geolocation, please enter your
+                            Latitude and
+                            Longitude instead: </p>
+                        <div class="input-field">
+                            <input placeholder="Latitude" id="lat-input" type="text" class="white-text">
+                        </div>
+                        <div class="input-field">
+                            <input placeholder="Longitude" id="lon-input" type="text" class="white-text">
+                        </div>
+                    </div>
+
+                    <!-- Date Input  -->
+                    <div class="row indigo darken-4 z-depth-2">
+                        <span class="white-text date-title">What day do you want to search?</span>
+                        <div class="input-field">
+                            <input placeholder="Date" id="view-date" type="text" class="datepicker white-text">
+                        </div>
+                    </div>
+
+                    <!-- Time Input  -->
+                    <div class="row indigo darken-4 z-depth-2">
+                        <span class="white-text time-title">At what time?</span>
+                        <div class="input-field">
+                            <input placeholder="Time" id="view-time" type="text" class="timepicker white-text">
+                        </div>
+                    </div>
+
+                    <!--Submit Button-->
+                    <div>
+                        <button id="submit-btn" class="btn waves-effect waves-light indigo accent-2" type="submit"
+                            name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+
+                    <!--Search History-->
+                    <div class="history input-field">
+                        <select name="search-history" id="search-history">
+                            <option value="" disabled selected>Previous searches</option>
+                        </select>
+                        <label for="search-history">Select a previous search and click submit</label>
+                    </div>
+                </div>
+
+                <!-- Search Display  -->
+                <div class="col s12 m8 l8">
+                    <h5>LookUp! The following bodies will be above you at your selected date and time:</h5>
+                    <div class="search-display">
+                        <!--      <img class="materialboxed" width="650" src="./assets/images/PIA08942_orig.jpg">  -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img src="./assets/images/PIA08942_flipped.jpg"
+                    alt="Saturn's outstretched ring system">
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer indigo darken-4  z-depth-2">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Images Courtesy of</h5>
+                    <p>
+                        <a class="grey-text text-lighten-3" href="https://images.nasa.gov/" target="_blank">NASA
+                            Image and Video Library</a>
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">More NASA Images</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3"
+                                href="https://images.nasa.gov/search-results?q=sun&page=1&media=image,video,audio&yearStart=1920&yearEnd=2020"
+                                target="_blank">Sun</a>
+                        </li>
+                        <li><a class="grey-text text-lighten-3"
+                                href="https://images.nasa.gov/search-results?q=moon&page=1&media=image,video,audio&yearStart=1920&yearEnd=2020"
+                                target="_blank">Moon</a>
+                        </li>
+                        <li><a class="grey-text text-lighten-3"
+                                href="https://images.nasa.gov/search-results?q=planets&page=1&media=image,video,audio&yearStart=1920&yearEnd=2020"
+                                target="_blank">Planets</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2020 BenKaraKristin, Inc.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+        integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
